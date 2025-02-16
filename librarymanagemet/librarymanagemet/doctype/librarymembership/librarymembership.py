@@ -2,22 +2,9 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import getdate
 import frappe.utils
+from frappe.utils import add_days
 
 class LibraryMembership(Document):
-
-     def validate(self):
-        """Ensure to_date is automatically set based on Loan Period from Library Settings."""
-        if not self.from_date:
-            frappe.throw("From Date is required.")
-
-        # Convert from_date to a proper date object
-        from_date = getdate(self.from_date)
-
-        # Fetch the Loan Period from Library Settings
-        loan_period = frappe.db.get_single_value("Library Settings", "Loan period") or 30
-
-        # Automatically set to_date
-        self.to_date = add_days(from_date, loan_period)
 
      def validate(self):
          """Runs before saving the document to validate dates."""
@@ -46,5 +33,17 @@ class LibraryMembership(Document):
         # If an active membership exists, throw an error
         if existing_membership:
             frappe.throw(f"Membership already available for this member: {existing_membership}. No duplicate memberships allowed.")
-          
-         
+
+        def validate(self):
+        # Ensure 'from_date' is set
+         if not self.from_date:
+            frappe.throw("From date is required.")
+        
+        # Get loan period from Library Settings
+        loan_period = frappe.db.get_single_value("LibrarySettings", "loan_period")
+        
+        if loan_period:
+            # Calculate 'to_date' by adding loan_period days to from_date
+            self.to_date = add_days(self.from_date, loan_period)
+        else:
+            frappe.throw("Loan period is not set in Library Settings.")

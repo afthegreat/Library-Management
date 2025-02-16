@@ -10,11 +10,10 @@
   "title",
   "autohor",
   "image",
-  "status",
   "column_break_bjrs",
+  "status",
   "isbn",
   "publish_date",
-  "details",
   "tab_2_tab",
   "route"
  ],
@@ -62,12 +61,6 @@
    "label": "route"
   },
   {
-   "fieldname": "details",
-   "fieldtype": "Data",
-   "label": "details",
-   "read_only": 1
-  },
-  {
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "label": "Image"
@@ -82,7 +75,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-16 11:41:44.794067",
+ "modified": "2025-02-16 15:39:06.965017",
  "modified_by": "Administrator",
  "module": "Librarymanagemet",
  "name": "Book",

@@ -34,7 +34,7 @@
   {
    "fieldname": "library_member",
    "fieldtype": "Link",
-   "label": "Library member",
+   "label": "library_member",
    "options": "LibraryMember"
   },
   {
@@ -67,7 +67,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-16 13:52:03.366253",
+ "modified": "2025-02-16 23:13:07.325379",
  "modified_by": "Administrator",
  "module": "Librarymanagemet",
  "name": "LibraryMembership",
