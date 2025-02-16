@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "field:title",
  "creation": "2025-02-15 15:07:29.530740",
@@ -14,8 +15,11 @@
   "status",
   "isbn",
   "publish_date",
+  "section_break_tymm",
+  "details",
   "tab_2_tab",
-  "route"
+  "route",
+  "published"
  ],
  "fields": [
   {
@@ -30,11 +34,6 @@
    "label": "Title",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "autohor",
-   "fieldtype": "Data",
-   "label": "Autohor"
   },
   {
    "fieldname": "column_break_bjrs",
@@ -70,12 +69,34 @@
    "fieldtype": "Select",
    "label": "status",
    "options": "issued\navailable"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "publish"
+  },
+  {
+   "fieldname": "section_break_tymm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "label": "details"
+  },
+  {
+   "fieldname": "autohor",
+   "fieldtype": "Data",
+   "label": "Author"
   }
  ],
+ "has_web_view": 1,
  "image_field": "image",
  "index_web_pages_for_search": 1,
+ "is_published_field": "published",
  "links": [],
- "modified": "2025-02-16 15:39:06.965017",
+ "modified": "2025-02-17 00:04:19.613316",
  "modified_by": "Administrator",
  "module": "Librarymanagemet",
  "name": "Book",
@@ -95,6 +116,7 @@
    "write": 1
   }
  ],
+ "route": "Book",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []
